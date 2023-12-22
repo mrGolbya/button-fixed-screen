@@ -1,0 +1,228 @@
+html {
+  font-size: clamp(5px, 0.6vw, 10px);
+}
+
+.social__buttons {
+  position: fixed;
+  top: 80vh;
+  left: 85vw;
+  user-select: none;
+  z-index: 999;
+}
+
+.social__wrapper div {
+  margin-bottom: 1rem;
+}
+
+.social__buttons .button,
+.social__buttons .vk,
+.social__buttons .wahatsapp,
+.social__buttons .mail {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  transition: all 0.5s ease;
+  box-shadow: 0 0.1rem 1rem 0 rgba(0, 0, 0, 0.15);
+}
+.social__buttons a img{
+  transition: all 0.5s ease;
+  border-radius: 50%;
+  box-shadow: 0 0.5rem 2rem 0 rgba(0, 0, 0, 0.15);
+}
+.social__buttons .button:hover,
+.social__buttons a img:hover {
+  transform: scale(1.15);
+}
+
+.social__buttons .vk,
+.social__buttons .wahatsapp,
+.social__buttons .mail {
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+.social__buttons .social__wrapper {
+  position: relative;
+}
+
+.social__buttons .vk {
+  background: #fff;
+  position: absolute;
+}
+
+.social__buttons .wahatsapp {
+  background: green;
+  position: absolute;
+}
+
+.social__buttons .mail {
+  background: #fff;
+  position: absolute;
+}
+
+.animation-active-1 {
+  animation-name: animat-1;
+}
+
+.animation-active-1-none {
+  animation-name: animat-1-none;
+}
+
+.animation-active-2 {
+  animation-name: animat-2;
+}
+
+.animation-active-2-none {
+  animation-name: animat-2-none;
+}
+
+.animation-active-3 {
+  animation-name: animat-3;
+}
+
+.animation-active-3-none {
+  animation-name: animat-3-none;
+}
+
+.social__buttons .button {
+  background: blue;
+  position: relative;
+  transform: scale(1.1);
+}
+
+.social__buttons .button:hover {
+  cursor: pointer;
+}
+
+.social__buttons .button.active span {
+  display: block;
+  position: absolute;
+  top: calc(50% - 0.1rem);
+  left: calc(50% - 1rem);
+  width: 2rem;
+  height: 0.2rem;
+  background: red;
+  transition: all 0.4s ease;
+  transform: rotate(45deg);
+}
+
+.social__buttons .button.active span::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  width: 100%;
+  height: 0.2rem;
+  background: red;
+  transition: all 0.4s ease;
+  transform: rotate(-90deg);
+}
+
+.social__buttons .button .message {
+  position: absolute;
+  top: calc(50% - 1.8rem);
+  left: calc(50% - 1.8rem);
+  width: 3.6rem;
+  height: 3.6rem;
+  opacity: 1;
+  overflow: auto;
+  transition: all 0.1s;
+}
+
+.social__buttons .button::before,
+.social__buttons .button::after {
+  content: "";
+  position: absolute;
+  border: 0.1rem solid blue;
+  left: -2rem;
+  right: -2rem;
+  top: -2rem;
+  bottom: -2rem;
+  border-radius: 50%;
+  animation: var(--animation-pulse);
+  opacity: 0;
+}
+
+.social__buttons .button::after {
+  animation-delay: 0.5s;
+}
+
+.social__buttons .button .message.hidden {
+  transform: scale(0.1);
+}
+
+.social__buttons .button.active {
+  background: rgba(128, 128, 128,0.8);
+}
+@keyframes pulse {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+}
+@keyframes animat-1 {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-120%);
+  }
+}
+@keyframes animat-1-none {
+  0% {
+    transform: translateY(-120%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes animat-2 {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-240%);
+  }
+}
+@keyframes animat-2-none {
+  0% {
+    transform: translateY(-240%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes animat-3 {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-360%);
+  }
+}
+@keyframes animat-3-none {
+  0% {
+    transform: translateY(-360%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  html {
+    font-size: clamp(5px, 2.7vw, 10px);
+  }
+  .social__buttons {
+    left: 75vw;
+  }
+}
