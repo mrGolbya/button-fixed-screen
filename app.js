@@ -1,3 +1,8 @@
+// import button from './buttons.json' assert { type: 'json' };
+let response = await fetch('./buttons.json')
+let buttons = await response.json()
+console.log(buttons)
+
 //animation-active
 document.querySelector('.social__wrapper').addEventListener('click', (e) => {
 
