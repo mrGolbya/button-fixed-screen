@@ -1,17 +1,24 @@
 [
   {
     "name": "vk",
-    "img": "./images/vk.svg",
+    "img": "/images/vk.svg",
+    "width": 5, 
+    "height": 5,
     "href": "https://vk.com/oxiss_more_than_strong"
   },
+  
   {
     "name": "wahatsapp",
-    "img": "./images/wat.svg",
+    "img": "/images/wat.svg",
+    "width": 5,
+    "height": 5,
     "href": "https://wa.me/79119015550"
   },
   {
-    "name": "message",
-    "img": "./images/message.svg",
+    "name": "mail",
+    "img": "/images/mail.svg",
+    "width": 5,
+    "height": 5,
     "href": "https://mailto:info@oxiss.ru"
   }
 ]

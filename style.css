@@ -1,3 +1,6 @@
+:root{
+  --translateButtons: 5rem;
+}
 html {
   font-size: clamp(5px, 0.6vw, 10px);
 }
@@ -174,12 +177,12 @@ html {
     transform: translateY(0);
   }
   100% {
-    transform: translateY(-120%);
+    transform: translateY(var(--translateButtons));
   }
 }
 @keyframes animat-1-none {
   0% {
-    transform: translateY(-120%);
+    transform: translateY(-6rem);
   }
   100% {
     transform: translateY(0);
@@ -190,12 +193,12 @@ html {
     transform: translateY(0);
   }
   100% {
-    transform: translateY(-240%);
+    transform: translateY(-12rem);
   }
 }
 @keyframes animat-2-none {
   0% {
-    transform: translateY(-240%);
+    transform: translateY(-12rem);
   }
   100% {
     transform: translateY(0);
