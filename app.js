@@ -1,6 +1,4 @@
-(async function () {
-let response = await fetch('./buttons.json')
-let buttons = await response.json()
+import buttons from './buttons.json' assert { type: 'json' };
 
 document.body.insertAdjacentHTML('beforeend', 
 `<div class="social__buttons">
@@ -19,15 +17,8 @@ document.body.insertAdjacentHTML('beforeend',
 </div>
 </div>`);
 
-(function () {
-  let step = [] 
-
-  for(let i=1; i<=buttons.length; i++){
-    step.push(i*2+1)
-  }
-  
-console.log(step)
-
+function createButtons() {
+ 
   for (let i of buttons){
     let socialWrapper = document.querySelector('.social__wrapper')
     socialWrapper.insertAdjacentHTML('afterbegin', `<a href=${i.href}
@@ -37,7 +28,6 @@ console.log(step)
   >
     <img src=${i.img} alt=${i.name} width="50" height="50"
   /></a>`) 
-  
   
   // console.log(document.querySelector('.social__wrapper a').animate([
   //       // key frames
@@ -49,55 +39,53 @@ console.log(step)
   //       iterations: Infinity
   //     }))
   }
-}());
+}
+createButtons()
 
-// document.querySelectorAll('.social__wrapper a ').forEach((i)=>{
-//   i.animate([
-//     // key frames
-//     { transform: 'translateY(0px)' },
-//     { transform: 'translateY(-300px)' }
-//   ], {
-//     // sync options
-//     duration: 2000,
-//     iterations: Infinity
-//   });
-  
-// })
+
+//создать функцию, в которую передаётся параметр translateY и затем добавлять эту анимацию   
+//при клике на кнопку для каждого элемента должен быть свой отступ
 
 
 //animation-active
+const VK = document.querySelector('.social__wrapper .vk ')
+const WAHATSAPP = document.querySelector('.social__wrapper .wahatsapp')
+const MAIL = document.querySelector('.social__wrapper .mail ')
+const BTN = document.querySelector('.social__buttons .button')
+const MESSAGE = document.querySelector('.social__buttons .button .message')
+const BTN_SPAN = document.querySelector('.social__buttons .button span')
+
 document.querySelector('.social__wrapper').addEventListener('click', (e) => {
 
   if (!e.target.classList.contains('active')) {
 
-    document.querySelector('.social__wrapper .vk ').classList.remove('animation-active-1-none')
-    document.querySelector('.social__wrapper .wahatsapp').classList.remove('animation-active-2-none')
-    document.querySelector('.social__wrapper .mail ').classList.remove('animation-active-3-none')
-    document.querySelector('.social__buttons .button').style.setProperty('--animation-pulse', 'none')
+    VK.classList.remove('animation-active-1-none')
+    WAHATSAPP.classList.remove('animation-active-2-none')
+    MAIL.classList.remove('animation-active-3-none')
+    BTN.style.setProperty('--animation-pulse', 'none')
 
-    document.querySelector('.social__buttons .button').classList.add('active')
-    document.querySelector('.social__buttons .button span').classList.add('active')
-    document.querySelector('.social__buttons .button .message').classList.add('hidden')
-    document.querySelector('.social__wrapper .vk ').classList.add('animation-active-1')
-    document.querySelector('.social__wrapper .wahatsapp').classList.add('animation-active-2')
-    document.querySelector('.social__wrapper .mail ').classList.add('animation-active-3')
+    BTN.classList.add('active')
+    BTN_SPAN.classList.add('active')
+    MESSAGE.classList.add('hidden')
+    VK.classList.add('animation-active-1')
+    WAHATSAPP.classList.add('animation-active-2')
+    MAIL.classList.add('animation-active-3')
 
   }
 
   else {
     
-    document.querySelector('.social__buttons .button').classList.remove('active')
-    document.querySelector('.social__buttons .button span').classList.remove('active')
-    document.querySelector('.social__wrapper .vk ').classList.remove('animation-active-1')
-    document.querySelector('.social__wrapper .wahatsapp').classList.remove('animation-active-2')
-    document.querySelector('.social__wrapper .mail ').classList.remove('animation-active-3')
-    document.querySelector('.social__buttons .button .message').classList.remove('hidden')
+    BTN.classList.remove('active')
+    BTN_SPAN.classList.remove('active')
+    VK.classList.remove('animation-active-1')
+    WAHATSAPP.classList.remove('animation-active-2')
+    MAIL.classList.remove('animation-active-3')
+    MESSAGE.classList.remove('hidden')
     
-    document.querySelector('.social__buttons .button').style.setProperty('--animation-pulse', 'pulse 1.8s linear infinite')
-    document.querySelector('.social__wrapper .vk ').classList.add('animation-active-1-none')
-    document.querySelector('.social__wrapper .wahatsapp').classList.add('animation-active-2-none')
-    document.querySelector('.social__wrapper .mail ').classList.add('animation-active-3-none')
+    BTN.style.setProperty('--animation-pulse', 'pulse 1.8s linear infinite')
+    VK.classList.add('animation-active-1-none')
+    WAHATSAPP.classList.add('animation-active-2-none')
+    MAIL.classList.add('animation-active-3-none')
     
   }
 })
-}());
